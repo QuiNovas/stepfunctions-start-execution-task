@@ -11,6 +11,7 @@ logger.setLevel(logging.INFO)
 
 
 def handler(event, context):
+    logger.info('Processing event :{}'.format(json.dumps(event)))
     response = CLIENT.client.start_execution(
         stateMachineArn=event['stateMachineArn'],
         name=event.get('name', str(uuid4())),
