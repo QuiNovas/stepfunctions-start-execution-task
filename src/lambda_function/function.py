@@ -21,4 +21,6 @@ def handler(event, context):
         )
     )
     response['startDate'] = response['startDate'].isoformat()
+    if 'ResponseMetadata' in response:
+        del response['ResponseMetadata']
     return response
