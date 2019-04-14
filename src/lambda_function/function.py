@@ -17,7 +17,7 @@ def handler(event, context):
         name=event.get('name', str(uuid4())),
         input=json.dumps(
             event.get('input', {}), 
-            seperators=(',', ':')
+            separators=(',', ':')
         )
     )
     response['startDate'] = response['startDate'].isoformat()
