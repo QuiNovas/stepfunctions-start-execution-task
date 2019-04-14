@@ -12,13 +12,15 @@ logger.setLevel(logging.INFO)
 
 def handler(event, context):
     logger.info('Processing event :{}'.format(json.dumps(event)))
-    response = CLIENT.client.start_execution(
+    response = CLIENT.start_execution(
         stateMachineArn=event['stateMachineArn'],
         name=event.get('name', str(uuid4())),
         input=json.dumps(
             event.get('input', {}), 
-            seperators=(',', ':')
+            separators=(',', ':')
         )
     )
     response['startDate'] = response['startDate'].isoformat()
+    if 'ResponseMetadata' in response:
+        del response['ResponseMetadata']
     return response
