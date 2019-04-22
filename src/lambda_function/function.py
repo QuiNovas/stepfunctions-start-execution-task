@@ -13,10 +13,10 @@ logger.setLevel(logging.INFO)
 def handler(event, context):
     logger.info('Processing event :{}'.format(json.dumps(event)))
     response = CLIENT.start_execution(
-        stateMachineArn=event['stateMachineArn'],
-        name=event.get('name', str(uuid4())),
+        stateMachineArn=event['StateMachineArn'],
+        name=event.get('Name', str(uuid4())),
         input=json.dumps(
-            event.get('input', {}), 
+            event.get('Input', {}), 
             separators=(',', ':')
         )
     )
