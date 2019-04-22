@@ -21,17 +21,17 @@ Request Syntax
 .. code::
 
   {
-      "stateMachineArn": "string",
-      "name": "string",
-      "input": {}
+      "StateMachineArn": "string",
+      "Name": "string",
+      "Input": {}
   }
 
-**stateMachineArn**
+**StateMachineArn**
   The Amazon Resource Name (ARN) of the state
   machine to execute.
-**name**
+**Name**
   The name of the execution.
-**input**
+**Input**
   The map that contains the input data for the execution.
 
 Response syntax
